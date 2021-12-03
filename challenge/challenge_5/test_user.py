@@ -3,7 +3,7 @@ nltk.download('vader_lexicon', quiet=True)
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import sys
 
-class Sentiment_analyzer():
+class Submit():
     def __init__(self):
         self.sid = SentimentIntensityAnalyzer()
 
