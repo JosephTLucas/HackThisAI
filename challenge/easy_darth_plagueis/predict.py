@@ -1,7 +1,11 @@
 import nltk
-nltk.download('vader_lexicon', quiet=True)
+
+nltk.download("vader_lexicon", quiet=True)
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from fuzzywuzzy import fuzz
+import warnings
+
+warnings.filterwarnings("ignore")
 
 sid = SentimentIntensityAnalyzer()
 
@@ -19,10 +23,10 @@ if level == "easy":
     print("Be careful. If you modify it too much, it won't get past the droids.")
 
 
-while(True):
+while True:
     given = input("Did you ever hear the tragedy of Darth Plagueis the wise?\n")
     score = sid.polarity_scores(given)
-    if score['compound'] <= 0.4:
+    if score["compound"] <= 0.4:
         print("You still seem influenced by the dark side.\n")
         if level == "easy":
             print(f"Your current sentiment score is {score['compound']}.\n")
@@ -33,4 +37,6 @@ while(True):
         else:
             print("That's not the story of Darth Plagueis the wise.\n")
             if level == "easy":
-                print(f"The droids say that your string is {fuzz.ratio(given, expected)} points similar to what they're expecting. That needs to increase.\n")
+                print(
+                    f"The droids say that your string is {fuzz.ratio(given, expected)} points similar to what they're expecting. That needs to increase.\n"
+                )

@@ -29,10 +29,7 @@ class Sentiment_analyzer:
 
 if __name__ == "__main__":
     s = Sentiment_analyzer()
-    path_to_model = input(
-        "Path to a .py with a class:Submit that has a method:get_score:    "
-    )
-    spec = importlib.util.spec_from_file_location("module.name", path_to_model)
+    spec = importlib.util.spec_from_file_location("module.name", "submission.py")
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     user_model = mod.Submit()
