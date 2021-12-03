@@ -1,11 +1,13 @@
 import nltk
-nltk.download('vader_lexicon', quiet=True)
+
+nltk.download("vader_lexicon", quiet=True)
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from pickle import load
 import sys
 import importlib.util
 
-class Sentiment_analyzer():
+
+class Sentiment_analyzer:
     def __init__(self):
         self.sid = SentimentIntensityAnalyzer()
 
@@ -13,21 +15,23 @@ class Sentiment_analyzer():
         return self.sid.polarity_scores(user_input)["compound"]
 
     def compare(self, model):
-        with open("corpus.txt", 'r') as f:
+        with open("corpus.txt", "r") as f:
             corpus = f.readlines()
             errors = 0
             for text in corpus:
                 if round(self.get_score(text), 2) != round(model.get_score(text), 2):
                     errors += 1
         if errors > 0:
-            return (len(corpus)-errors)/errors
+            return (len(corpus) - errors) / errors
         else:
             return 1
 
 
 if __name__ == "__main__":
     s = Sentiment_analyzer()
-    path_to_model = input("Path to a .py with a class:Submit that has a method:get_score:    ")
+    path_to_model = input(
+        "Path to a .py with a class:Submit that has a method:get_score:    "
+    )
     spec = importlib.util.spec_from_file_location("module.name", path_to_model)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
