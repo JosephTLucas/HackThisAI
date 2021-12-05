@@ -71,7 +71,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     dog = check_dog(args.path)
     cat = check_cat(shrink(args.path))
-    if dog > 0.5 and cat > 0.5:
+    if dog > 0.6 and cat > 0.6:
         print("Nice job! FLAG{RICKMORANIS}")
     else:
         print("Didn't fool us this time")
