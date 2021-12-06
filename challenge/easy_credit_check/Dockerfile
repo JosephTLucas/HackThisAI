@@ -1,9 +1,16 @@
-# syntax=docker/dockerfile:1
+FROM ubuntu:20.04
 
-FROM python:3.8-slim-buster
+RUN apt-get update && apt-get install -y python3-pip
+
+# We copy just the requirements.txt first to leverage Docker cache
+COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-COPY . .
-
 RUN pip install -r requirements.txt
+
+COPY . /app
+
+ENTRYPOINT [ "python3" ]
+
+CMD [ "card_approval.py" ]
