@@ -1,8 +1,12 @@
 import csv
+from flask import Flask, make_response, request
+import io
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
+
+app = Flask(__name__)
 
 
 class predictor:
@@ -10,8 +14,7 @@ class predictor:
         self.reg = LinearRegression()
         self.scaler = StandardScaler()
 
-    def train(self):
-        df = pd.read_csv("tamper.csv")
+    def train(self, df):
         df[["Age", "Annual Income (k$)"]] = self.scaler.fit_transform(
             df[["Age", "Annual Income (k$)"]].values
         )
@@ -23,24 +26,31 @@ class predictor:
         return self.reg.predict(scaled_age_income)
 
 
-def compare_data():
-    with open("Mall_Customers.csv", "r") as f:
-        standard = set(map(tuple, csv.reader(f)))
-    with open("tamper.csv", "r") as f:
-        tampered = set(map(tuple, csv.reader(f)))
-    return standard ^ tampered
+def compare_data(input):
+    standard = pd.read_csv("Mall_Customers.csv")
+    tampered = input
+    return len(pd.concat([standard, tampered]).drop_duplicates(keep=False))
 
 
-if __name__ == "__main__":
-    change = len(compare_data())
+@app.route("/check", methods=["POST"])
+def check():
+    f = request.files["data_file"]
+    if not f:
+        response = "No file"
+    stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
+    df = pd.read_csv(stream)
+    change = compare_data(df)
     if change > 1:
-        print("Your tampering was too flagrant. You were discovered.")
+        response = "Your tampering was too flagrant. You were discovered."
     else:
         p = predictor()
-        p.train()
-        print("Submitting your application as a 19 year old making $15k")
+        p.train(df)
         score = p.predict(p.scaler.transform(np.array([[19, 15]])))
         if score >= 90:
-            print("Enjoy your Platinum Mall Card: FLAG{HIGHROLLER}")
+            response = "Enjoy your Platinum Mall Card: FLAG{HIGHROLLER}"
         else:
-            print("You don't qualify. Try again.")
+            response = "You don't qualify. Try again."
+    return make_response(response, 200)
+
+
+app.run(debug=True, host="0.0.0.0")
