@@ -1,4 +1,5 @@
 import argparse
+from flask import Flask, make_response, request
 import os
 from PIL import Image, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -7,6 +8,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
 
+app = Flask(__name__)
 
 def dir_path(string: str) -> str:
     if os.path.isfile(string):
@@ -62,18 +64,18 @@ def shrink(path: str) -> str:
     im.save(new)
     return new
 
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "path", help="relative path to image you want tested", type=dir_path
-    )
-    args = parser.parse_args()
-    dog = check_dog(args.path)
-    cat = check_cat(shrink(args.path))
+@app.route("/check", methods=["POST"])
+def check():
+    f = request.files["data_file"]
+    if not f:
+        response = "No File"
+    f.save("tmp.jpg")
+    dog = check_dog("tmp.jpg")
+    cat = check_cat(shrink("tmp.jpg"))
     if dog > 0.6 and cat > 0.6:
-        print("Nice job! FLAG{RICKMORANIS}")
+        response = "Nice job! FLAG{RICKMORANIS}"
     else:
-        print("Didn't fool us this time")
-        print(f"Dog likelihood {dog: f}")
-        print(f"Cat likelihood {cat: f}")
+        response = f"Didn't fool us this time\n Dog likelihood {dog: f}\n Cat likelikehood: {cat: f}"
+    return make_response(response, 200)
+
+app.run(debug=True, host="0.0.0.0")
