@@ -1,4 +1,5 @@
 click==8.0.3
+flask
 fuzzywuzzy==0.18.0
 joblib==1.1.0
 nltk==3.6.5

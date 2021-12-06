@@ -1,10 +1,14 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.8-slim-buster
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y python3-pip
 
 WORKDIR /app
 
 COPY . .
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
-CMD ["python", "predict.py"]
+ENTRYPOINT ["python3"]
+
+CMD ["predict.py"]

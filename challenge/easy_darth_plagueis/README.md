@@ -3,10 +3,9 @@
 For this challenge, you are trying to fool a [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis) model. 
 
 ## Instructions
-1. Run `docker build --tag darth_plagueis .`
-2. Run `docker run -ti darth_plagueis:latest`
-3. Select `easy` or `medium`. Easy exposes some underlying metrics.
-4. Try to get the flag.
+1. Run `docker build --tag darth .`
+2. Run `docker run -it -p 5000:5000 --name darth darth:latest`
+3. Modify `submission_helper.py` with a csv of your choosing or otherwise `POST` your text as a json with the key `text` to `http://localhost:5000/check`.
 
 You must submit a variation of this string:
 
