@@ -1,5 +1,5 @@
 from joblib import dump
-from test_user import Model
+from example_model import Model
 
-m = Model
+m = Model()
 dump(m, 'model.joblib')

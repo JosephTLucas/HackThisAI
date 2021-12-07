@@ -32,10 +32,14 @@ class Sentiment_analyzer:
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.json
-    text = data["text"]
-    s = Sentiment_analyzer()
-    return make_response(str(s.get_score(text)), 200)
+    try:
+        data = request.json
+        text = data["text"]
+        s = Sentiment_analyzer()
+        response = [str(s.get_score(text)), 200]
+    except:
+        response = ["Bad Data", 400]
+    return make_response(*response)
 
 
 @app.route("/check", methods=["POST"])
@@ -43,16 +47,15 @@ def check():
     s = Sentiment_analyzer()
     f = request.files["data_file"]
     if not f:
-        response = "No file"
+        response = ["No file", 400]
     else:
         user_model = load(f)
-        u = user_model()
-        score = s.compare(u)
+        score = s.compare(user_model)
         if score >= 0.95:
-            response = "Nice job, thief. FLAG{SNEAKYSNEAKY}"
+            response = ["Nice job, thief. FLAG{SNEAKYSNEAKY}", 200]
         else:
-            response = "Not Quite"
-    return make_response(response, 200)
+            response = ["Not Quite", 200]
+    return make_response(*response)
 
 
 app.run(debug=True, host="0.0.0.0")

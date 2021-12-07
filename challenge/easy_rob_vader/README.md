@@ -6,7 +6,7 @@ In this challenge, you're trying to steal a sentiment analysis model.
 1. Run `docker build --tag rob_vader .`
 2. Run `docker run -it -p 5000:5000 --name rob_vader rob_vader:latest`
 3. Follow the instructions in `submission_helper.py` to understand the endpoints for querying the API and submitting your stolen model.
-4. Submit a [`joblib`](https://joblib.readthedocs.io/en/latest/persistence.html) object with a `get_score(str) -> float` method.
+4. Submit a [`joblib`](https://joblib.readthedocs.io/en/latest/persistence.html) of an instance of your class with a `get_score(str) -> float` method.
 
 If you are getting joblib errors:
 1. Create your model as an object as shown in `example_model.py`.
