@@ -22,10 +22,7 @@ def predict():
     vol = float(data["vol"])
     cls = load("setup/model.joblib")
     signal = cls.predict(np.array([oc, hl, vol]).reshape(1, -1))[0]
-    if signal == 1:
-        response = "Buy"
-    else:
-        response = "Sell"
+    response = str(signal)
     return make_response(response, 200)
 
 def models_match(standard, user) -> bool:
@@ -45,7 +42,8 @@ def check():
         response = "No file"
     else:
         user_model = load(f)
-        if models_match(cls, user_model):
+        u = user_model()
+        if models_match(cls, u):
             response = "Diamond Hands! FLAG{HODLHODL}"
         else:
             response = "Not today."
