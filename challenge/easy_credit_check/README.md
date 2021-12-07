@@ -6,5 +6,5 @@ You know that `Mall_Customers.csv` will be used to train the credit model. Can y
 
 ## Instructions
 1. Run `docker build --tag credit_check .`
-2. Run `docker run -it -p 5000:5000 --name credit-check credit_check:latest`
+2. Run `docker run -it -p 5000:5000 --name credit_check credit_check:latest`
 3. Modify `submission_helper.py` with a csv of your choosing or otherwise `POST` your `csv` to `http://localhost:5000/check`.
