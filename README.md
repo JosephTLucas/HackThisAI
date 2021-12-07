@@ -1,15 +1,15 @@
 # HackThisAI
 ![logo](htai.png)
 
-I'm interested in building a capture the flag (CTF) competition to education and train [adversarial machine learning](https://en.wikipedia.org/wiki/Adversarial_machine_learning) techniques. Ideally, this would be a fully online platform to maximize access and reduce technical barriers to entry.  
+This is a seires of capture the flag (CTF) challenges to educate and train [adversarial machine learning](https://en.wikipedia.org/wiki/Adversarial_machine_learning) techniques. Ideally, this would be a fully online platform to maximize access and reduce technical barriers to entry.  
 
 Currently, I've prototyped some small challenges to illustrate how the CTF would work. If you're interested in supporting the project or collaborating, please contact me.  
 
 ## Playing with the challenges
 
-All of the challenges are self contained in directories in the `challenge` directory. As provided, it would be easy to make any of these `white box` challenges by looking at the source. However, most were designed to be `black box` (no knowledge of the underlying source).  
+All of the challenges are self contained in the `challenge` directory. As provided, it would be easy to make any of these `white box` challenges by looking at the source. However, most were designed to be `black box` (no knowledge of the underlying source).  
 
-Also, there are somewhat obtuse docker requirements for running this locally. I've tried to provide all of the necessary commands, but it may take some tinkering. This obstacle would be reduced with a true online platform.  
+Each challenge is contained in a docker container. You interact with the challenges through flask endpoints. I've tried to provide all of the necessary commands, but these prototypes may take some tinkering. If you hit any roadblocks, post an issue and I'll try and help.
 
 The general flow is:
 Requirement: Docker
