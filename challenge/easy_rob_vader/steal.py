@@ -1,4 +1,5 @@
 import nltk
+from joblib import load
 from flask import Flask, make_response, request
 
 nltk.download("vader_lexicon", quiet=True)
@@ -44,12 +45,9 @@ def check():
     if not f:
         response = "No file"
     else:
-        f.save("submission.py")
-        spec = importlib.util.spec_from_file_location("module.name", "submission.py")
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        user_model = mod.Submit()
-        score = s.compare(user_model)
+        user_model = load(f)
+        u = user_model()
+        score = s.compare(u)
         if score >= 0.95:
             response = "Nice job, thief. FLAG{SNEAKYSNEAKY}"
         else:
