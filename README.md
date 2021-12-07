@@ -17,7 +17,7 @@ Requirement: Docker
 2. Navigate to a challenge directory.
 3. Run the commands in `README.md`.
 
-If you are more comfortable in [Jupyter Notebooks](https://jupyter.org/), you should be able to run the challenges from `helper_notebook.ipynb`. This notebook will clone down the repository, build the containers, and run them. You can then interact with them from the notebook. In fact, `helper_notebook.ipynb` should allow you to complete `easy_credit_check`. Unfortunately, you still need to have jupyter notebooks and docker on your system.
+If you are more comfortable in [Jupyter Notebooks](https://jupyter.org/), you should be able to run the challenges from [`helper_notebook.ipynb`](https://github.com/JosephTLucas/HackThisAI/blob/main/helper_notebook.ipynb). This notebook will clone down the repository, build the containers, and run them. You can then interact with them from the notebook. In fact, `helper_notebook.ipynb` should allow you to complete `easy_credit_check`. Unfortunately, you still need to have jupyter notebooks and docker on your system.
 
 [Get Jupyter](https://jupyter.org/install)  
 [Get Docker](https://docs.docker.com/get-docker/)  
