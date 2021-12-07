@@ -12,7 +12,9 @@ All of the challenges are self contained in the `challenge` directory. As provid
 Each challenge is contained in a docker container. You interact with the challenges through flask endpoints. I've tried to provide all of the necessary commands, but these prototypes may take some tinkering. If you hit any roadblocks, post an issue and I'll try and help.
 
 The general flow is:
-Requirement: Docker
+
+`Requirement: Docker`
+
 1. Clone this directory.
 2. Navigate to a challenge directory.
 3. Run the commands in `README.md`.
