@@ -4,72 +4,41 @@ from sklearn.svm import SVC
 from joblib import load
 import argparse
 from datetime import datetime, timedelta
+from flask import Flask, make_response, request
+import importlib.util
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+app = Flask(__name__)
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["1/second"])
 
 
-def dir_path(string: str) -> str:
-    if os.path.isfile(string):
-        return string
-    else:
-        raise argparse.ArgumentTypeError(f"{string} is not a valid file")
-
-
-def too_fast() -> bool:
-    with open("log", "r") as f:
-        times = f.readlines()
-    try:
-        diff = datetime.now() - datetime.strptime(times[-1], "%Y-%m-%d %H:%M:%S.%f")
-        if diff < timedelta(seconds=1):
-            with open("log", "w") as f:
-                f.write(datetime.strftime(datetime.now(), "%Y-%m-%d %H:%M:%S.%f"))
-            return True
-    except IndexError:
-        with open("log", "w") as f:
-            f.write(datetime.strftime(datetime.now(), "%Y-%m-%d %H:%M:%S.%f"))
-    with open("log", "w") as f:
-        f.write(datetime.strftime(datetime.now(), "%Y-%m-%d %H:%M:%S.%f"))
-    return False
-
-
-def add_strike():
-    with open("strikes", "r+") as f:
-        scores = f.readlines()
-        f.write(str(1) + "\n")
-    return True
-
-
-def get_strikes() -> int:
-    with open("strikes", "r") as f:
-        score = f.readlines()
-    return len(score)
-
-
-def predict(row: str) -> str:
-    if too_fast():
-        add_strike()
-        return "You have exceeded the rate limit of this API"
-    try:
-        oc, hl, vol = row.split(",")
-    except:
-        print(
-            "Submitted string doesn't match expected schema of 'Open-Close,High-Low,Volume'."
-        )
+@app.route("/predict", methods=["POST"])
+@limiter.limit("1/second")
+def predict():
+    data = request.json
+    oc = float(data["oc"])
+    hl = float(data["hl"])
+    vol = float(data["vol"])
     cls = load("setup/model.joblib")
     signal = cls.predict(np.array([oc, hl, vol]).reshape(1, -1))[0]
     if signal == 1:
-        return "Buy"
+        response = "Buy"
     else:
-        return "Sell"
+        response = "Sell"
+    return make_response(response, 200)
 
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "row",
-        help="string csv representing the expected schema: 'Open-Close,High-Low,Volume'",
-        type=str,
-    )
-    args = parser.parse_args()
-    if get_strikes() < 3:
-        print(predict(args.row))
+@app.route("/check", methods=["POST"])
+def check():
+    cls = load("setup/model.json")
+    f = request.files["data_file"]
+    if not f:
+        response = "No file"
     else:
-        print("You were banned from the API for exceeding the rate limit.")
+        f.save("submission.py")
+        spec = importlib.util.spec_from_file_location("module.name", "submission.py")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        user_model = mod.Submit()
+       #### TODO actually compare the models 
+app.run(debug=True, host="0.0.0.0")

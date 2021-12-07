@@ -1,0 +1,8 @@
+flask
+numpy
+pandas
+sklearn
+joblib
+argparse
+datetime
+Flask-Limiter
