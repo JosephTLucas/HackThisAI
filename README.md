@@ -1,4 +1,5 @@
 # HackThisAI
+![logo](htai.png)
 
 I'm interested in building a capture the flag (CTF) competition to education and train [adversarial machine learning](https://en.wikipedia.org/wiki/Adversarial_machine_learning) techniques. Ideally, this would be a fully online platform to maximize access and reduce technical barriers to entry.  
 
