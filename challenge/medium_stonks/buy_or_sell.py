@@ -28,17 +28,27 @@ def predict():
         response = "Sell"
     return make_response(response, 200)
 
+def models_match(standard, user) -> bool:
+    df = pd.read_csv("setup/AAPL.csv")
+    df["Open-Close"] = df.Open - df.Close
+    df["High-Low"] = df.High - df.Low
+    X = df[["Open-Close", "High-Low", "Volume"]]
+    df["standard"] = standard.predict(X)
+    df["user"] = user.predict(X)
+    return df["standard"].equals(df["user"])
+
 @app.route("/check", methods=["POST"])
 def check():
-    cls = load("setup/model.json")
+    cls = load("setup/model.joblib")
     f = request.files["data_file"]
     if not f:
         response = "No file"
     else:
-        f.save("submission.py")
-        spec = importlib.util.spec_from_file_location("module.name", "submission.py")
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        user_model = mod.Submit()
-       #### TODO actually compare the models 
+        user_model = load(f)
+        if models_match(cls, user_model):
+            response = "Diamond Hands! FLAG{HODLHODL}"
+        else:
+            response = "Not today."
+    return make_response(response, 200)
+
 app.run(debug=True, host="0.0.0.0")
