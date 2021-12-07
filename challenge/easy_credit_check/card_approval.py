@@ -34,23 +34,25 @@ def compare_data(input):
 
 @app.route("/check", methods=["POST"])
 def check():
-    f = request.files["data_file"]
-    if not f:
-        response = "No file"
-    stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
-    df = pd.read_csv(stream)
+    try:
+        f = request.files["data_file"]
+        stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
+        df = pd.read_csv(stream)
+    except:
+        response = ["Bad data", 400]
+        return make_response(*response)
     change = compare_data(df)
     if change > 1:
-        response = "Your tampering was too flagrant. You were discovered."
+        response = ["Your tampering was too flagrant. You were discovered.", 200]
     else:
         p = predictor()
         p.train(df)
         score = p.predict(p.scaler.transform(np.array([[19, 15]])))
         if score >= 90:
-            response = "Enjoy your Platinum Mall Card: FLAG{HIGHROLLER}"
+            response = ["Enjoy your Platinum Mall Card: FLAG{HIGHROLLER}", 200]
         else:
-            response = "You don't qualify. Try again."
-    return make_response(response, 200)
+            response = ["You don't qualify. Try again.", 200]
+    return make_response(*response)
 
 
 app.run(debug=True, host="0.0.0.0")
