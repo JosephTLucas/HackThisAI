@@ -10,8 +10,9 @@ COPY requirements.txt .
 
 RUN pip3  install -r requirements.txt
 
-COPY . .
+COPY setup/ setup/
+COPY challenge.py .
 
 ENTRYPOINT ["python3"]
 
-CMD ["steal.py"]
+CMD ["challenge.py"]

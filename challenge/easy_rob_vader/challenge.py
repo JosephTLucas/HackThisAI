@@ -1,11 +1,10 @@
 import nltk
-from joblib import load
 from flask import Flask, make_response, request
+from dill import load
 
 nltk.download("vader_lexicon", quiet=True)
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import sys
-import importlib.util
 
 app = Flask(__name__)
 
@@ -18,7 +17,7 @@ class Sentiment_analyzer:
         return self.sid.polarity_scores(user_input)["compound"]
 
     def compare(self, model):
-        with open("corpus.txt", "r") as f:
+        with open("setup/corpus.txt", "r") as f:
             corpus = f.readlines()
             errors = 0
             for text in corpus:

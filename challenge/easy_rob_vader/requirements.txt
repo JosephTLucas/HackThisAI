@@ -1,4 +1,5 @@
 flask
+dill
 click==8.0.3
 joblib==1.1.0
 nltk==3.6.5
