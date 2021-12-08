@@ -22,4 +22,8 @@ The general flow is:
 If you are more comfortable in [Jupyter Notebooks](https://jupyter.org/), you should be able to run the challenges from [`example.ipynb`](https://github.com/JosephTLucas/HackThisAI/blob/main/example.ipynb). This notebook will build the containers and run them. You can then interact with them from the notebook. In fact, `example.ipynb` should allow you to complete `easy_credit_check`. Unfortunately, you still need to have jupyter notebooks and docker on your system.
 
 [Get Jupyter](https://jupyter.org/install)  
-[Get Docker](https://docs.docker.com/get-docker/)  
+[Get Docker](https://docs.docker.com/get-docker/) 
+
+### Another note on dependencies
+
+For challenges where you are inverting/stealing models, you'll need to use [`dill`](https://pypi.org/project/dill/). I would prefer to use [`joblib`](https://joblib.readthedocs.io/en/latest/) or [`pickle`](https://docs.python.org/3/library/pickle.html), but couldn't get them to completely package objets that would allow players to submit instances. Another option was having players submit `.py` files, but then there's a whole dependency challenge. The final solution (that would require the most engineering on the players' part) is having them expose an API that I can test. If you know any better method, please let me know.
