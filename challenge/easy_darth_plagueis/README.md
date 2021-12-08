@@ -1,6 +1,10 @@
 # Darth Plagueis
 
-For this challenge, you are trying to fool a [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis) model. 
+## Scenario
+There's a [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis) bot that you want to fool.
+
+## Objective
+Smuggle a permutation of the Darth Plagueis monologue past the bot.
 
 ## Instructions
 1. Run `docker build --tag darth .`
