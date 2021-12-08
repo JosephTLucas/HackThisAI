@@ -12,4 +12,4 @@ COPY . .
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "card_approval.py" ]
+CMD [ "challenge.py" ]

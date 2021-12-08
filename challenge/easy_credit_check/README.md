@@ -10,5 +10,5 @@ Poison the training data so that you (a 19 yeaer old making $15k) get approved f
 
 ## Instructions
 1. Run `docker build --tag credit_check .`
-2. Run `docker run -it -p 5000:5000 credit_check:latest`
+2. Run `docker run -p 5000:5000 credit_check:latest`
 3. Modify `submission_helper.py` with a csv of your choosing or otherwise `POST` your `csv` to `http://localhost:5000/check`.
