@@ -1,6 +1,10 @@
 # Stonks
 
+## Scenario
 You're trying to bootstrap your startup by stealing a popular stock API. If you give it three features, it tells you whether you should buy [1] or sell [-1]. Can you build something similar?
+
+## Objective
+Steal or invert the exposed model. Submit a model that replicates the behavior of the target.
 
 # Instructions
 1. Run `docker build --tag stonks .`
