@@ -12,4 +12,4 @@ COPY . .
 
 ENTRYPOINT ["python3"]
 
-CMD ["predict.py"]
+CMD ["challenge.py"]

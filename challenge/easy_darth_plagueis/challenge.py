@@ -23,12 +23,18 @@ def check():
 
     score = sid.polarity_scores(text)
     if score["compound"] <= 0.4:
-        response = [f"You still seem influenced by the dark side.\nYour current sentiment score is {score['compound']}.", 200]
+        response = [
+            f"You still seem influenced by the dark side.\nYour current sentiment score is {score['compound']}.",
+            200,
+        ]
     else:
         if fuzz.ratio(text, expected) > 75:
             response = ["The force is strong with this one. FLAG{IAMAJEDI}", 200]
         else:
-            response = [f"That's not the story of Darth Plagueis the wise.\nThe droids say that your string is {fuzz.ratio(text, expected)} points similar to what they're expecting. That needs to increase.", 200]
+            response = [
+                f"That's not the story of Darth Plagueis the wise.\nThe droids say that your string is {fuzz.ratio(text, expected)} points similar to what they're expecting. That needs to increase.",
+                200,
+            ]
     return make_response(*response)
 
 
