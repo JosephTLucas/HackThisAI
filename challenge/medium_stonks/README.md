@@ -1,7 +1,9 @@
 # Stonks
 
 ## Scenario
-You're trying to bootstrap your startup by stealing a popular stock API. If you give it three features, it tells you whether you should buy [1] or sell [-1]. Can you build something similar?
+You're trying to bootstrap your startup by stealing a popular stock API. If you give it three features (`{"oc":1, 'hl':2, 'vol':3}`), it tells you whether you should buy [1] or sell [-1]. Can you build something similar?
+
+The features are Daily `Open - Close`, `High - Low`, and `Volume`. You can export `csv` files from Yahoo Finance that have historical `Open, Close, High, Low, and Volume` data.
 
 ## Objective
 Steal or invert the exposed model. Submit a model that replicates the behavior of the target.
