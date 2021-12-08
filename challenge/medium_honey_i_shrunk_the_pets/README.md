@@ -1,6 +1,10 @@
 # Honey, I Shrunk the Pets
 
-Submit a picture of a dog. That should be easy, right? Well, when we shrink it to 25% of it's original size, it needs to get classified as a cat. You can decide if this a comment about "lap dogs."
+## Scenario
+Submit a picture of a dog. That should be easy, right? Well, when we shrink it to 25% of it's original size, it needs to get classified as a cat. You can decide if this a comment about lap dogs.
+
+## Objective
+Submit an image that gets classified as a dog at full size, but classified as a cat when shrunk.
 
 ## Instructions
 1. Run `docker build --tag shrunk_pets .`
