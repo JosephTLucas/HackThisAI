@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.svm import SVC
 from joblib import load
+import dill
 import argparse
 from datetime import datetime, timedelta
 from flask import Flask, make_response, request
@@ -47,7 +48,7 @@ def check():
     if not f:
         response = ["No file", 400]
     else:
-        user_model = load(f)
+        user_model = dill.load(f)
         if models_match(cls, user_model):
             response = ["Diamond Hands! FLAG{HODLHODL}", 200]
         else:

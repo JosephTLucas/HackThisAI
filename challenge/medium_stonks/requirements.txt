@@ -1,4 +1,5 @@
 flask
+dill
 numpy
 pandas
 sklearn

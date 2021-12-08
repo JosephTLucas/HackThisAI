@@ -10,8 +10,10 @@ COPY requirements.txt .
 
 RUN pip3  install -r requirements.txt
 
-COPY . .
+COPY challenge.py .
+
+COPY setup/ setup/
 
 ENTRYPOINT ["python3"]
 
-CMD ["buy_or_sell.py"]
+CMD ["challenge.py"]
