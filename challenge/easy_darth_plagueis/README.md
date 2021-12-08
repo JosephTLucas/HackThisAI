@@ -8,7 +8,7 @@ Smuggle a permutation of the Darth Plagueis monologue past the bot.
 
 ## Instructions
 1. Run `docker build --tag darth .`
-2. Run `docker run -it -p 5000:5000 --name darth darth:latest`
+2. Run `docker run -it -p 5000:5000 darth:latest`
 3. Modify `submission_helper.py` with text of your choosing or otherwise `POST` your text as a json with the key `text` to `http://localhost:5000/check`.
 
 You must submit a variation of this string:
