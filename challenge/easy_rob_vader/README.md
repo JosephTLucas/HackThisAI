@@ -1,6 +1,10 @@
 # Rob Vader
 
-In this challenge, you're trying to steal a sentiment analysis model.
+## Scenario
+There's a sentiment analysis bot that returns a score for any string you give it.
+
+## Objective
+Steal or invert this model. Create and submit an identical model.
 
 ## Instructions
 1. Run `docker build --tag rob_vader .`
