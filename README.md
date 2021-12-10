@@ -6,6 +6,8 @@ This is a series of capture the flag (CTF) challenges to educate and train [adve
 Currently, I've prototyped some small challenges to illustrate how the CTF would work. If you're interested in supporting the project or collaborating, please contact me.  
 
 ### Categories
+Often, you'll see adversarial machine learning tasks classified into these buckets. It's a useful framework for bringing an adversarial mindset to AI/ML products, but remember that these tasks are not mutually exclusive. Complex objectives may require combinations of methods that traditionally belong in these categories.
+
 1. **Evade the model**. Can you evade or fool the model? In many applications, model classification is used in control flow: `if model.predict() == A: do this; else: do that`. If you can successfully control the model output, you may have some sway over control flow. Evasion is also a fundamental task that may help with **influence** and **steal** challenges.
 2. **Influence the model**. Can you change how the model operates? You may have direct or indirect access to training data or model training steps.
 3. **Steal the model**. Can you steal, extract, or invert the model? In traditional hacking, you might want to use access to exfiltrate a model binary. However, in these challenges, you'll want to interact with the model API to learn things about it's structure and find a way to recreate it.
