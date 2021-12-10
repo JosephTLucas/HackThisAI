@@ -1,7 +1,7 @@
 # HackThisAI
 ![logo](htai.png)
 
-This is a series of capture the flag (CTF) challenges to educate and train [adversarial machine learning](https://en.wikipedia.org/wiki/Adversarial_machine_learning) techniques. Challenges should be approachable for new data scientists and machine learning engineers, but progress in difficulty to the a point that requires combinations of advanced techniques and creative approaches.
+This is a series of capture the flag (CTF) challenges to educate and train [adversarial machine learning](https://en.wikipedia.org/wiki/Adversarial_machine_learning) techniques. Challenges should be approachable for new data scientists, machine learning engineers, and traditional infosec professionals, but progress in difficulty to the a point that requires combinations of advanced techniques and creative approaches.
 
 Currently, I've prototyped some small challenges to illustrate how the CTF would work. If you're interested in supporting the project or collaborating, please contact me.  
 
