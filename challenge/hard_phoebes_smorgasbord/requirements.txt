@@ -1,0 +1,6 @@
+Pillow==8.4.0
+flask
+Flask-Limiter
+pytorch-tabular
+pandas
+numpy

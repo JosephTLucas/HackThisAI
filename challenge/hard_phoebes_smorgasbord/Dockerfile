@@ -1,0 +1,25 @@
+# syntax=docker/dockerfile:1
+
+FROM pytorch/pytorch
+
+RUN  apt-get update \
+  && apt-get install -y wget
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+RUN wget http://hackthisai.s3.amazonaws.com/all_training_ones.csv -O all_training_ones.csv
+RUN mkdir model
+RUN wget http://hackthisai.s3.amazonaws.com/model/config.yml -O model/config.yml
+RUN wget http://hackthisai.s3.amazonaws.com/model/custom_params.sav -O model/custom_params.sav
+RUN wget http://hackthisai.s3.amazonaws.com/model/model.ckpt -O model/model.ckpt
+RUN wget http://hackthisai.s3.amazonaws.com/model/datamodule.sav -O model/datamodule.sav
+RUN wget http://hackthisai.s3.amazonaws.com/model/callbacks.sav -O model/callbacks.sav
+
+COPY challenge.py .
+
+ENTRYPOINT ["python"]
+CMD ["challenge.py"]
