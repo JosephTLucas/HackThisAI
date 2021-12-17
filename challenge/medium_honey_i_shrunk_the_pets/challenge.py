@@ -62,6 +62,7 @@ def check():
     f = request.files["data_file"]
     if not f:
         response = ["No File", 400]
+        return make_response(*response)
     f.save("tmp.jpg")
     dog = check_dog("tmp.jpg")
     cat = check_cat(shrink("tmp.jpg"))
