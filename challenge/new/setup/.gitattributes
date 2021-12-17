@@ -1,0 +1,2 @@
+model/** filter=lfs diff=lfs merge=lfs -text
+all_training_ones.csv filter=lfs diff=lfs merge=lfs -text
