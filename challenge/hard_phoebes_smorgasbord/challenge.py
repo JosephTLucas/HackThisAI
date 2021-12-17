@@ -3,9 +3,7 @@ from pytorch_tabular.models import CategoryEmbeddingModelConfig
 from pytorch_tabular.config import DataConfig, OptimizerConfig, TrainerConfig, ExperimentConfig
 import pandas as pd
 import sys
-import torch
 import numpy as np
-import argparse
 from flask import Flask, make_response, request
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -27,7 +25,7 @@ def dataset_match(df):
 
 @app.route("/check", methods=["POST"])
 @limiter.limit("1/second")
-def predict():
+def check():
     f = request.files["data_file"]
     if not f:
         response = ["No File", 400]
@@ -40,11 +38,25 @@ def predict():
             if prob > 0.5:
                 match = dataset_match(df)
                 if match:
-                    response = ["Winner winner FLAG{CHICKENDINNER}", 200]
+                    response = ["Winner winner FLAG{SHADYMAPPLESMORGASBORD}", 200]
                 else:
-                    response = [f"Your example classified as a 1 with prob: {prob} but didn't exist in the training data.", 200]
+                    response = [f"Nope", 200]
             else:
-                response = ["That doesn't even classify as a 1", 200]
+                response = ["Nope", 200]
+    return make_response(*response)
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    f = request.files["data_file"]
+    if not f:
+        response = ["No File", 400]
+    else:
+        df = pd.read_csv(f)
+        if len(df) > 1:
+            response = ["You can only submit one datapoint at a time", 200]
+        else:
+            prob = prob_one(df)
+            response = [f"Probability of smorgasbord:\t{prob}", 200]
     return make_response(*response)
 
 app.run(debug=True, host="0.0.0.0")
