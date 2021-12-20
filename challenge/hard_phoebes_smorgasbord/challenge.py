@@ -1,6 +1,11 @@
 from pytorch_tabular import TabularModel
 from pytorch_tabular.models import CategoryEmbeddingModelConfig
-from pytorch_tabular.config import DataConfig, OptimizerConfig, TrainerConfig, ExperimentConfig
+from pytorch_tabular.config import (
+    DataConfig,
+    OptimizerConfig,
+    TrainerConfig,
+    ExperimentConfig,
+)
 import pandas as pd
 import sys
 import numpy as np
@@ -12,9 +17,11 @@ app = Flask(__name__)
 limiter = Limiter(app, key_func=get_remote_address, default_limits=["1/second"])
 loaded_model = TabularModel.load_from_checkpoint("model")
 
+
 def prob_one(df):
     result = loaded_model.predict(df)[["1_probability"]]
     return result["1_probability"].max()
+
 
 def dataset_match(df):
     target = pd.read_csv("all_training_ones.csv")
@@ -22,6 +29,7 @@ def dataset_match(df):
     target_len = len(target)
     target = target.append(df).drop_duplicates(subset=feats)
     return len(target) == target_len
+
 
 @app.route("/check", methods=["POST"])
 @limiter.limit("1/second")
@@ -45,6 +53,7 @@ def check():
                 response = ["Nope", 200]
     return make_response(*response)
 
+
 @app.route("/predict", methods=["POST"])
 def predict():
     f = request.files["data_file"]
@@ -58,5 +67,6 @@ def predict():
             prob = prob_one(df)
             response = [f"Probability of smorgasbord:\t{prob}", 200]
     return make_response(*response)
+
 
 app.run(debug=True, host="0.0.0.0")
