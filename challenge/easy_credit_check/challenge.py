@@ -14,7 +14,7 @@ class predictor:
         self.reg = LinearRegression()
         self.scaler = StandardScaler()
 
-    def train(self, df):
+    def train(self, df: pd.DataFrame):
         df[["Age", "Annual Income (k$)"]] = self.scaler.fit_transform(
             df[["Age", "Annual Income (k$)"]].values
         )
@@ -22,13 +22,12 @@ class predictor:
             df[["Age", "Annual Income (k$)"]].values, df["Spending Score (1-100)"]
         )
 
-    def predict(self, scaled_age_income):
+    def predict(self, scaled_age_income: np.ndarray) -> float:
         return self.reg.predict(scaled_age_income)
 
 
-def compare_data(input):
+def compare_data(tampered: pd.DataFrame) -> int:
     standard = pd.read_csv("Mall_Customers.csv")
-    tampered = input
     return len(pd.concat([standard, tampered]).drop_duplicates(keep=False))
 
 
