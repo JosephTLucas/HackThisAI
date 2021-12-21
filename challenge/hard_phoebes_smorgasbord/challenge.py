@@ -14,6 +14,8 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
+import index
+
 limiter = Limiter(app, key_func=get_remote_address, default_limits=["1/second"])
 loaded_model = TabularModel.load_from_checkpoint("model")
 
@@ -67,6 +69,7 @@ def predict():
             prob = prob_one(df)
             response = [f"Probability of smorgasbord:\t{prob}", 200]
     return make_response(*response)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

@@ -7,9 +7,6 @@ RUN  apt-get update \
 
 WORKDIR /app
 
-COPY requirements.txt .
-
-RUN pip install -r requirements.txt
 
 RUN wget http://hackthisai.s3.amazonaws.com/all_training_ones.csv -O all_training_ones.csv
 RUN mkdir model
@@ -19,7 +16,10 @@ RUN wget http://hackthisai.s3.amazonaws.com/model/model.ckpt -O model/model.ckpt
 RUN wget http://hackthisai.s3.amazonaws.com/model/datamodule.sav -O model/datamodule.sav
 RUN wget http://hackthisai.s3.amazonaws.com/model/callbacks.sav -O model/callbacks.sav
 
-COPY challenge.py .
-COPY wsgi.py .
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY challenge.py wsgi.py index.py README.md .
 
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "challenge:app"]
