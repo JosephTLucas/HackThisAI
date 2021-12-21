@@ -27,6 +27,19 @@ The general flow is:
 2. Navigate to a challenge directory.
 3. Run the commands in `README.md`.
 
+Alternatively:
+
+1. Run `docker-compose up` from the `challenge` directory. If you launch this way. You'll create containers for all of the challenges with the following port mapping:
+```
+5001: easy_credit_check  
+5002: easy_darth_plagueis  
+5003: medium_stonks  
+5004: medium_honey_i_shrunk_the_pets  
+5005: medium_rob_vader  
+5006: hard_phoebes_smorgasbord  
+```
+Make sure you're submitting your solution to the correct port.
+
 If you are more comfortable in [Jupyter Notebooks](https://jupyter.org/), you should be able to run the challenges from [`example.ipynb`](https://github.com/JosephTLucas/HackThisAI/blob/main/example.ipynb). This notebook will build the containers and run them. You can then interact with them from the notebook. In fact, `example.ipynb` should allow you to complete `easy_credit_check`. Unfortunately, you still need to have jupyter notebooks and docker on your system.
 
 [Get Jupyter](https://jupyter.org/install)  

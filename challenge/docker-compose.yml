@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+    easy_credit_check:
+        build: ./easy_credit_check
+        ports:
+            - "5001:5000"
+    easy_darth_plagueis:
+        build: ./easy_darth_plagueis
+        ports:
+            - "5002:5000"
+    medium_stonks:
+        build: ./medium_stonks
+        ports:
+            - "5003:5000"
+    medium_honey_i_shrunk_the_pets:
+        build: ./medium_honey_i_shrunk_the_pets
+        ports:
+            - "5004:5000"
+    medium_rob_vader:
+        build: ./medium_rob_vader
+        ports:
+            - "5005:5000"
+    hard_phoebes_smorgasbord:
+        build: ./hard_phoebes_smorgasbord
+        ports:
+            - "5006:5000"
