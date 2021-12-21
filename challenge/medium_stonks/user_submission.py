@@ -9,5 +9,6 @@ class Model:
     def predict(self, df):
         return 0
 
+
 with open("model.dill", "wb") as f:
     dill.dump(Model(), f)

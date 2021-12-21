@@ -11,6 +11,8 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
+import index
+
 limiter = Limiter(app, key_func=get_remote_address, default_limits=["1/second"])
 
 
@@ -29,6 +31,7 @@ def predict():
         response = ["Bad Data", 400]
     return make_response(*response)
 
+
 def models_match(standard, user) -> bool:
     df = pd.read_csv("setup/AAPL.csv")
     df["Open-Close"] = df.Open - df.Close
@@ -40,6 +43,7 @@ def models_match(standard, user) -> bool:
         return df["standard"].equals(df["user"])
     except:
         return False
+
 
 @app.route("/check", methods=["POST"])
 def check():
@@ -54,6 +58,7 @@ def check():
         else:
             response = ["Not today.", 200]
     return make_response(*response)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

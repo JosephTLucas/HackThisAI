@@ -2,6 +2,7 @@ gunicorn
 flask
 dill
 numpy
+markdown
 pandas
 sklearn
 joblib
