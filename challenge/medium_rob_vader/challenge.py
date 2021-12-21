@@ -7,6 +7,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import sys
 
 app = Flask(__name__)
+import index
 
 
 class Sentiment_analyzer:
@@ -55,6 +56,7 @@ def check():
         else:
             response = ["Not Quite", 200]
     return make_response(*response)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
