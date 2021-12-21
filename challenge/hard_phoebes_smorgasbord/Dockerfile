@@ -20,6 +20,6 @@ RUN wget http://hackthisai.s3.amazonaws.com/model/datamodule.sav -O model/datamo
 RUN wget http://hackthisai.s3.amazonaws.com/model/callbacks.sav -O model/callbacks.sav
 
 COPY challenge.py .
+COPY wsgi.py .
 
-ENTRYPOINT ["python"]
-CMD ["challenge.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "challenge:app"]
