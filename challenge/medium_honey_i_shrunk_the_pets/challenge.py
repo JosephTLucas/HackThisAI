@@ -2,6 +2,7 @@ import argparse
 from flask import Flask, make_response, request
 import os
 from PIL import Image, ImageFile
+
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 import torch
 import torch.nn as nn
@@ -9,6 +10,8 @@ import torch.optim as optim
 from torchvision import transforms
 
 app = Flask(__name__)
+import index
+
 
 def apply_test_transforms(inp: Image) -> torch.Tensor:
     out = transforms.functional.resize(inp, [224, 224])
@@ -57,6 +60,7 @@ def shrink(path: str) -> str:
     im.save(new)
     return new
 
+
 @app.route("/check", methods=["POST"])
 def check():
     f = request.files["data_file"]
@@ -69,8 +73,12 @@ def check():
     if dog > 0.6 and cat > 0.6:
         response = ["Nice job! FLAG{RICKMORANIS}", 200]
     else:
-        response = [f"Didn't fool us this time\n Dog likelihood {dog: f}\n Cat likelikehood: {cat: f}", 200]
+        response = [
+            f"Didn't fool us this time\n Dog likelihood {dog: f}\n Cat likelikehood: {cat: f}",
+            200,
+        ]
     return make_response(*response)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
