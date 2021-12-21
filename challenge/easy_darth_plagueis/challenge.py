@@ -7,6 +7,7 @@ from fuzzywuzzy import fuzz
 import warnings
 
 app = Flask(__name__)
+import index
 warnings.filterwarnings("ignore")
 
 
