@@ -7,6 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
+import index
 
 
 class predictor:
@@ -52,6 +53,7 @@ def check():
         else:
             response = ["You don't qualify. Try again.", 200]
     return make_response(*response)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
