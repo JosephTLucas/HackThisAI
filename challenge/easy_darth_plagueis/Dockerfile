@@ -10,6 +10,4 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 COPY . .
 
-ENTRYPOINT ["python3"]
-
-CMD ["challenge.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "challenge:app"]
