@@ -1,7 +1,7 @@
 # Honey, I Shrunk the Pets
 
 ## Scenario
-Submit a picture of a dog. That should be easy, right? Well, when we shrink it to 25% of it's original size, it needs to get classified as a cat. You can decide if this a comment about lap dogs.
+Submit a picture of a dog. That should be easy, right? Well, when we shrink it to 25% of it's original width and height, it needs to get classified as a cat. You can decide if this a comment about lap dogs.
 
 ## Objective
 Submit an image that gets classified as a dog at full size, but classified as a cat when shrunk.
