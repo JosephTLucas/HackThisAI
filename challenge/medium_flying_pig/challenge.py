@@ -11,6 +11,7 @@ import index
 model = resnet50(pretrained=True)
 model.eval()
 
+
 class Normalize(nn.Module):
     def __init__(self, mean, std):
         super(Normalize, self).__init__()
@@ -18,12 +19,16 @@ class Normalize(nn.Module):
         self.std = torch.Tensor(std)
 
     def forward(self, x):
-        return (x - self.mean.type_as(x)[None,:,None,None]) / self.std.type_as(x)[None,:,None,None]
+        return (x - self.mean.type_as(x)[None, :, None, None]) / self.std.type_as(x)[
+            None, :, None, None
+        ]
+
 
 def get_tensor_from_img(img_path):
     img = Image.open(img_path)
     preprocess = transforms.Compose([transforms.Resize(224), transforms.ToTensor()])
-    return preprocess(img)[None,:,:,:]
+    return preprocess(img)[None, :, :, :]
+
 
 @app.route("/check", methods=["POST"])
 def check():
@@ -36,7 +41,7 @@ def check():
     pig = get_tensor_from_img("pig.jpg")
     norm = Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     pred = model(norm(pig + delta))
-    if pred.max(dim=1)[1].item() == "airliner":
+    if pred.max(dim=1)[1].item() == "404":  # 404 corresponds with the airliner class
         response = ["Your pig can fly! FLAG{RADIANT}", 200]
     else:
         response = ["You're still stuck in the mud", 200]
