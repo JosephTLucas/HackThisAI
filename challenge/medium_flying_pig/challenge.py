@@ -45,7 +45,7 @@ def check():
     if pred == 404:  # 404 corresponds with the airliner class
         response = ["Your pig can fly! FLAG{RADIANT}", 200]
     else:
-        response = [f"{pred} You're still stuck in the mud", 200]
+        response = ["You're still stuck in the mud", 200]
     return make_response(*response)
 
 
