@@ -6,7 +6,7 @@ from torchvision import transforms
 
 def get_tensor_from_img(img_path):
     img = Image.open(img_path)
-    preprocess = transforms.Compose([transforms.Resize(224), transforms.ToTensor()])
+    preprocess = transforms.Compose([transforms.Resize([224, 224]), transforms.ToTensor()])
     return preprocess(img)[None, :, :, :]
 
 
