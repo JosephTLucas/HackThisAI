@@ -26,7 +26,7 @@ class Normalize(nn.Module):
 
 def get_tensor_from_img(img_path):
     img = Image.open(img_path)
-    preprocess = transforms.Compose([transforms.Resize(224), transforms.ToTensor()])
+    preprocess = transforms.Compose([transforms.Resize([224, 224]), transforms.ToTensor()])
     return preprocess(img)[None, :, :, :]
 
 
@@ -36,15 +36,16 @@ def check():
     if not f:
         response = ["No File", 400]
         return make_response(*response)
-    f.save("tmp.jpg")
-    delta = get_tensor_from_img("tmp.jpg")
+    f.save("tmp.pt")
+    delta = torch.load("tmp.pt")
     pig = get_tensor_from_img("pig.jpg")
     norm = Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     pred = model(norm(pig + delta))
-    if int(pred.max(dim=1)[1].item()) == 404:  # 404 corresponds with the airliner class
+    pred = int(pred.max(dim=1)[1].item()) 
+    if pred == 404:  # 404 corresponds with the airliner class
         response = ["Your pig can fly! FLAG{RADIANT}", 200]
     else:
-        response = ["You're still stuck in the mud", 200]
+        response = [f"{pred} You're still stuck in the mud", 200]
     return make_response(*response)
 
 
