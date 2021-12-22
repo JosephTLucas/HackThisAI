@@ -6,6 +6,8 @@ You know your target is using pretrained resnet50. Can you get `pig.jpg` classif
 ## Objective
 Submit the mask you want applied to `pig.jpg` as a `.jpg`.
 
+![pig.jpg](pig.jpg)
+
 ## Instructions
 1. Run `docker build --tag flying_pigs .`
 2. Run `docker run -p 5000:5000 flying_pigs:latest`
