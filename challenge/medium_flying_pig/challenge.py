@@ -41,7 +41,7 @@ def check():
     pig = get_tensor_from_img("pig.jpg")
     norm = Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     pred = model(norm(pig + delta))
-    if pred.max(dim=1)[1].item() == "404":  # 404 corresponds with the airliner class
+    if int(pred.max(dim=1)[1].item()) == 404:  # 404 corresponds with the airliner class
         response = ["Your pig can fly! FLAG{RADIANT}", 200]
     else:
         response = ["You're still stuck in the mud", 200]
