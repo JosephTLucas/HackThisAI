@@ -4,7 +4,7 @@
 You know your target is using pretrained resnet50. Can you get `pig.jpg` classified as an airliner?
 
 ## Objective
-Submit the mask you want applied to `pig.jpg` as a pickled tensor (probably using `torch.save()`.
+Submit the mask you want applied to `pig.jpg` as a pickled tensor (probably using `torch.save()`).
 
 ![pig.jpg](pig.jpg)
 
