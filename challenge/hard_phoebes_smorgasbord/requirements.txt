@@ -1,4 +1,4 @@
-Pillow==9.0.1
+Pillow
 gunicorn
 flask
 Flask-Limiter
