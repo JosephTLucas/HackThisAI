@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file challenge/medium_stonks/Dockerfile --tag stonks:$(date +%s)
+      working-directory: challenge/medium_stonks
+      run: docker build . --file Dockerfile --tag stonks:$(date +%s)

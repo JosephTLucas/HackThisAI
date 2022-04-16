@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file challenge/medium_flying_pig/Dockerfile --tag flying_pig:$(date +%s)
+      working-directory: ./challenge/medium_flying_pig
+      run: docker build . --file Dockerfile --tag flying_pig:$(date +%s)

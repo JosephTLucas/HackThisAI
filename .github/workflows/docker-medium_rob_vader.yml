@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file challenge/medium_rob_vader/Dockerfile --tag vader:$(date +%s)
+      working-directory: challenge/medium_rob_vader
+      run: docker build . --file Dockerfile --tag vader:$(date +%s)

@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file challenge/easy_credit_check/Dockerfile --tag credit_check:$(date +%s)
+      working-directory: ./challenge/easy_credit_check
+      run: docker build . --file Dockerfile --tag credit_check:$(date +%s)

@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file challenge/medium_honey_i_shrunk_the_pets/Dockerfile --tag pets:$(date +%s)
+      working-directory: challenge/medium_honey_i_shrink_the_pets
+      run: docker build . --file Dockerfile --tag pets:$(date +%s)

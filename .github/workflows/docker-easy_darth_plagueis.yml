@@ -13,4 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file challenge/easy_darth_plagueis/Dockerfile --tag darth_plagueis:$(date +%s)
+      working-directory: ./challenge/easy_darth_plagueis
+      run: docker build . --file Dockerfile --tag darth_plagueis:$(date +%s)
