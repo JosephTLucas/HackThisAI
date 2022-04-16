@@ -11,6 +11,6 @@ COPY requirements.txt .
 RUN pip3  install -r requirements.txt
 
 COPY setup/ setup/
-COPY challenge.py index.py wsgi.py README.md .
+COPY challenge.py index.py wsgi.py README.md ./
 
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "challenge:app"]
