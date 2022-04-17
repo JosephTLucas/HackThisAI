@@ -15,9 +15,9 @@ jobs:
     - name: Build the Docker image
       working-directory: ./challenge/hard_phoebes_smorgasbord
       run: docker build . --file Dockerfile --tag smorgasbord:$(date +%s)
-    -name: wait
+    - name: wait
       run: sleep 30s
-    -name: Test submission
+    - name: Test submission
       working-directory: ./challenge/hard_phoebes_smorgasbord
       run: |
         python -m pip install -r requirements.txt
