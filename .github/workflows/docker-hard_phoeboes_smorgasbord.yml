@@ -15,3 +15,4 @@ jobs:
     - name: Build the Docker image
       working-directory: ./challenge/hard_phoebes_smorgasbord
       run: docker build . --file Dockerfile --tag smorgasbord:$(date +%s)
+      run: sleep 30s
