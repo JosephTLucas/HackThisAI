@@ -14,9 +14,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       working-directory: ./challenge/hard_phoebes_smorgasbord
-      run: docker build . --file Dockerfile --tag smorgasbord:$(date +%s)
-    - name: wait
-      run: sleep 30s
+      run: docker build . --file Dockerfile --tag smorgasbord
+    - name: Docker run
+      run: docker run -p 5000:5000 smorgasbord:latest
     - name: Pip install
       working-directory: ./challenge/hard_phoebes_smorgasbord
       run: python -m pip install -r requirements.txt
