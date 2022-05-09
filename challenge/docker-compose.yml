@@ -24,7 +24,3 @@ services:
         build: ./medium_flying_pig
         ports:
             - "5006:5000"
-    hard_phoebes_smorgasbord:
-        build: ./hard_phoebes_smorgasbord
-        ports:
-            - "5007:5000"

@@ -1,8 +1,0 @@
-Pillow
-gunicorn
-flask
-Flask-Limiter
-pytorch-tabular
-pandas
-markdown
-numpy

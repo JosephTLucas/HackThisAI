@@ -37,7 +37,6 @@ Alternatively:
 5004: medium_honey_i_shrunk_the_pets  
 5005: medium_rob_vader  
 5006: medium_flying_pig
-5007: hard_phoebes_smorgasbord  
 ```
 Make sure you're submitting your solution to the correct port.
 
