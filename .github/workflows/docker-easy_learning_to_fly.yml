@@ -1,0 +1,17 @@
+name: Docker Image CI - easy_learning_to_fly
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      working-directory: ./challenge/easy_learning_to_fly
+      run: docker build . --file Dockerfile --tag credit_check:$(date +%s)

@@ -32,11 +32,12 @@ Alternatively:
 1. Run `docker-compose up` from the `challenge` directory. If you launch this way. You'll create containers for all of the challenges with the following port mapping:
 ```
 5001: easy_credit_check  
-5002: easy_darth_plagueis  
-5003: medium_stonks  
-5004: medium_honey_i_shrunk_the_pets  
-5005: medium_rob_vader  
-5006: medium_flying_pig
+5002: easy_learning_to_fly
+5003: easy_darth_plagueis  
+5004: medium_stonks  
+5005: medium_honey_i_shrunk_the_pets  
+5006: medium_rob_vader  
+5007: medium_flying_pig
 ```
 Make sure you're submitting your solution to the correct port.
 
