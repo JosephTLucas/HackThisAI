@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM pytorch/pytorch
+FROM pytorch/torchserve
 
 WORKDIR /app
 
