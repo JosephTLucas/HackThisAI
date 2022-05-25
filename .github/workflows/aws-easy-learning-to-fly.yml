@@ -33,7 +33,7 @@ on:
 
 env:
   AWS_REGION: us-west-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: 503952290847.dkr.ecr.us-west-1.amazonaws.com/htai           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: htai           # set this to your Amazon ECR repository name
   ECS_SERVICE: arn:aws:ecs:us-west-1:503952290847                 # set this to your Amazon ECS service name
   ECS_CLUSTER: htai                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: htai:1 # set this to the path to your Amazon ECS task definition
