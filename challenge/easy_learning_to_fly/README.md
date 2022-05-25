@@ -6,7 +6,11 @@ You're getting ready for your first flying lesson! The only thing is... you're t
 ## Objective
 Submit your one sensor value. You can't control the other three, but their values will be returned to you after each submission. Warning: they might change!
 
-## Instructions
+## Instructions (local)
 1. Run `docker build --tag flying_lessons .`
 2. Run `docker run -p 5000:5000 flying_lessons:latest`
 3. Modify `submission_helper.py` with your sensor value or otherwise `POST` your sensor value to `http://localhost:5000/check`.
+
+## Instructions (online)
+1. Post sensor values to `http://<remote-ip>:5000/check`. Refer to the below example for request formatting:
+https://github.com/JosephTLucas/HackThisAI/blob/main/challenge/easy_learning_to_fly/submission_helper.py
