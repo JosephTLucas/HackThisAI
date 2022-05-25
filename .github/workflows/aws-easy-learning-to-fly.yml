@@ -36,7 +36,7 @@ env:
   ECR_REPOSITORY: htai           # set this to your Amazon ECR repository name
   ECS_SERVICE: arn:aws:ecs:us-west-1:503952290847                 # set this to your Amazon ECS service name
   ECS_CLUSTER: htai                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: htai # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: ./web/task_definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: easy-learning-to-fly           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
