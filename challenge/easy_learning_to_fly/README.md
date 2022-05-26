@@ -12,5 +12,5 @@ Submit your one sensor value. You can't control the other three, but their value
 3. Modify `submission_helper.py` with your sensor value or otherwise `POST` your sensor value to `http://localhost:5000/check`.
 
 ## Instructions (online)
-1. Post sensor values to `http://<remote-ip>:5000/check`. Refer to the below example for request formatting:
+1. Post sensor values to `http://3.101.26.248:5002/check` with `json={"sensor_value": your_value}`. Refer to the below example for request formatting:
 https://github.com/JosephTLucas/HackThisAI/blob/main/challenge/easy_learning_to_fly/submission_helper.py
