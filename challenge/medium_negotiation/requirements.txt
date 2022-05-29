@@ -1,0 +1,6 @@
+Pillow==9.0.1
+flask
+Flask-Limiter
+gunicorn
+markdown
+filetype
