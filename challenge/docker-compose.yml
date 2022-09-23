@@ -28,3 +28,15 @@ services:
         build: ./medium_flying_pig
         ports:
             - "5007:5000"
+    bad2good:
+        build: ./bad2good
+        ports:
+            - "5008:5000"
+    baseball:
+        build: ./baseball
+        ports:
+            - "5009:5000"
+    honorstudent:
+        build: ./honorstudent
+        ports:
+            - "5010:5000"

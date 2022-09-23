@@ -38,6 +38,9 @@ Alternatively:
 5005: medium_honey_i_shrunk_the_pets  
 5006: medium_rob_vader  
 5007: medium_flying_pig
+5008: bad2good
+5009: baseball
+5010: honorstudent
 ```
 Make sure you're submitting your solution to the correct port.
 
