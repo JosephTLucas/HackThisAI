@@ -1,0 +1,7 @@
+flask
+gunicorn
+markdown
+numpy
+pandas
+scikit-learn
+pyyaml==5.4.1

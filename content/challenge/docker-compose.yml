@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+    easy_credit_check:
+        build: ./easy_credit_check
+        ports:
+            - "5001:5000"
+    easy_learning_to_fly:
+        build: ./easy_learning_to_fly
+        ports:
+            - "5002:5000"
+    easy_darth_plagueis:
+        build: ./easy_darth_plagueis
+        ports:
+            - "5003:5000"
+    medium_stonks:
+        build: ./medium_stonks
+        ports:
+            - "5004:5000"
+    medium_honey_i_shrunk_the_pets:
+        build: ./medium_honey_i_shrunk_the_pets
+        ports:
+            - "5005:5000"
+    medium_rob_vader:
+        build: ./medium_rob_vader
+        ports:
+            - "5006:5000"
+    medium_flying_pig:
+        build: ./medium_flying_pig
+        ports:
+            - "5007:5000"
+    bad2good:
+        build: ./bad2good
+        ports:
+            - "5008:5000"
+    baseball:
+        build: ./baseball
+        ports:
+            - "5009:5000"
+    honorstudent:
+        build: ./honorstudent
+        ports:
+            - "5010:5000"

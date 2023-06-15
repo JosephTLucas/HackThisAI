@@ -1,0 +1,11 @@
+gunicorn
+flask
+dill
+numpy
+markdown
+pandas
+sklearn
+joblib
+argparse
+datetime
+Flask-Limiter

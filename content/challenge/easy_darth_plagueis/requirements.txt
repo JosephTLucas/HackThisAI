@@ -1,0 +1,9 @@
+click==8.0.3
+gunicorn
+flask
+fuzzywuzzy==0.18.0
+joblib==1.1.0
+markdown
+nltk==3.6.6
+regex==2021.11.10
+tqdm==4.62.3
