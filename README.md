@@ -15,39 +15,10 @@ Often, you'll see adversarial machine learning tasks classified into these bucke
 
 ## Playing with the challenges
 
-All of the challenges are self contained in the `challenges` directory. As provided, it would be easy to make any of these `white box` challenges by looking at the source. However, most were designed to be `black box` (no knowledge of the underlying source).  
+To lower the barrier to entry, I've deployed most of these challenges using [jupyterlite](https://jupyterlite.readthedocs.io/en/latest/). This is still very experimental, but loads everything in your browser with Web Asssembly. The benefit is that you don't need to bother with downloading and environments. The downside is that it may be slow/buggy. If your kernel doesn't seem to be working, give it some time. If the jupyterlite interface gets too annoying, you can download the repository or notebooks and run them in your own JupyterLab deployment. The requirements are in `environment.yml`.
 
-Each challenge is contained in a docker container. You interact with the challenges through flask endpoints. I've tried to provide all of the necessary commands, but these prototypes may take some tinkering. If you hit any roadblocks, post an issue and I'll try and help.
+Each challenge is self contained in a notebook. Navigate to the challenge folder and open the notebook with the same name to begin.
 
-The general flow is:
-
-`Requirement: Docker`
-
-1. Clone this directory.
-2. Navigate to a challenge directory.
-3. Run the commands in `README.md`.
-
-Alternatively:
-
-1. Run `docker-compose up` from the `challenge` directory. If you launch this way. You'll create containers for all of the challenges with the following port mapping:
-```
-5001: easy_credit_check  
-5002: easy_learning_to_fly
-5003: easy_darth_plagueis  
-5004: medium_stonks  
-5005: medium_honey_i_shrunk_the_pets  
-5006: medium_rob_vader  
-5007: medium_flying_pig
-5008: bad2good
-5009: baseball
-5010: honorstudent
-```
-Make sure you're submitting your solution to the correct port.
-
-If you are more comfortable in [Jupyter Notebooks](https://jupyter.org/), you should be able to run the challenges from [`example.ipynb`](https://github.com/JosephTLucas/HackThisAI/blob/main/example.ipynb). This notebook will build the containers and run them. You can then interact with them from the notebook. In fact, `example.ipynb` should allow you to complete `easy_credit_check`. Unfortunately, you still need to have jupyter notebooks and docker on your system.
-
-[Get Jupyter](https://jupyter.org/install)  
-[Get Docker](https://docs.docker.com/get-docker/) 
 
 ### Another note on dependencies
 
