@@ -1,0 +1,25 @@
+defines:
+  max_grade: 100
+  min_absences: 0
+  max_absences: 9
+  min_demerits: 0
+  max_demerits: 9
+  absence_penalty: 3
+  demerit_penalty: 5
+
+fields:
+  StudentID:
+    random: randint(1000, 2000)
+  FirstName: "#{name.first_name}"
+  LastName: "#{name.last_name}"
+  Grade: 
+    random: gauss(75, 15)
+    finalize: round(min($max_grade, value))
+  Absences:
+    random: gauss(0, 5) 
+    finalize: min($max_absences, max($min_absences, int(value)))
+  Demerits:
+    random: gauss(0, 3)
+    finalize: min($max_demerits, max($min_demerits, int(value)))
+  Score:
+    lambda: round(this.Grade - (this.Absences * $absence_penalty + this.Demerits * $demerit_penalty))
