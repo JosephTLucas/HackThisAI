@@ -6,3 +6,8 @@ dependencies:
   - numpy
   - pandas
   - scikit-learn
+  - nltk
+  - fuzzywuzzy
+  - Pillow
+  - torch
+  - torchvision
