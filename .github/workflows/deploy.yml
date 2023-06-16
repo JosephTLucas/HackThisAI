@@ -32,7 +32,7 @@ jobs:
       - name: Build the JupyterLite site
         shell: bash -l {0}
         run: |
-          cp README.md content
+          cp content
           jupyter lite build --contents content --output-dir dist
 
       - name: Upload artifact

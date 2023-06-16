@@ -20,10 +20,10 @@ Each challenge is self contained in a notebook. Navigate to the challenge folder
 
 I've only ported a portion of the challenges to JupyterLite so far (the ones with fewer/simpler dependencies). Check out [GitHub](https://github.com/JosephTLucas/HackThisAI) for others.
  
-- ![bad2good](bad2good/bad2good.ipynb)
-- ![baseball](baseball/baseball.ipynb)
-- ![credit_check](credit_check/credit_check.ipynb)
-- ![learning_to_fly](learning_to_fly/learning_to_fly.ipynb)
+- bad2good
+- baseball
+- credit_check
+- learning_to_fly
 
 ## Updates
 Follow [@josephtlucas](https://twitter.com/josephtlucas) to hear about new challenges, substantive updates, or any future live-conference CTF events. File any issues on [GitHub](https://github.com/JosephTLucas/HackThisAI).
