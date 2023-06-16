@@ -33,7 +33,7 @@ jobs:
         shell: bash -l {0}
         run: |
           cp README.md content
-          jupyter lite build --contents content --output-dir dist
+          jupyter lite build --contents content --output-dir dist --piplite-wheels=numpy,scikit-learn,joblib,pandas
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
