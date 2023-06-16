@@ -32,7 +32,7 @@ jobs:
       - name: Build the JupyterLite site
         shell: bash -l {0}
         run: |
-          jupyter lite build --contents content --output-dir dist --base-url lab?path=README.ipynb
+          jupyter lite build --contents content --output-dir dist --base-url='/lab?path=README.ipynb'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
