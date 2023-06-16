@@ -8,3 +8,4 @@ dependencies:
   - jupyterlite-core >=0.1.0,<0.2.0
   - pip:
     - jupyterlite-xeus-python >=0.8.1,<0.9.0
+    - jupyterlite-pyodide-kernel

@@ -6,5 +6,3 @@ dependencies:
   - numpy
   - pandas
   - scikit-learn
-  - nltk
-  - Pillow
