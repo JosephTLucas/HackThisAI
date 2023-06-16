@@ -9,7 +9,6 @@ jupyterlite-xeus-python
 # JupyterLab: dark theme
 jupyterlab-night
 
-# bad2good
 numpy
 pandas
 scikit-learn
