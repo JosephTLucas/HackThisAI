@@ -4,7 +4,6 @@ jupyterlab~=3.5.1
 
 # Python kernel (optional)
 jupyterlite-xeus-python
-jupyterlite-pyodide-kernel
 
 # JupyterLab: dark theme
 jupyterlab-night
