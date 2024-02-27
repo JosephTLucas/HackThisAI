@@ -1,7 +1,7 @@
 # HackThisAI
 ![logo](htai.png)
 
-** This repository is no longer maintained. The challenges may still be useful for some folks, but the concept has evolved. The format went on to shape two DEFCON/Kaggle CTF competitions and inspired a much higher-quality offering. Contact https://dreadnode.io/ for more information.**
+**This repository is no longer maintained. The challenges may still be useful for some folks, but the concept has evolved. The format went on to shape two DEFCON/Kaggle CTF competitions and inspired a much higher-quality offering. Contact https://dreadnode.io/ for more information.**
 
 - https://www.kaggle.com/competitions/ai-village-ctf
 - https://www.kaggle.com/competitions/ai-village-capture-the-flag-defcon31
