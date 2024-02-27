@@ -1,6 +1,11 @@
 # HackThisAI
 ![logo](htai.png)
 
+** This repository is no longer maintained. The challenges may still be useful for some folks, but the concept has evolved. The format went on to shape two DEFCON/Kaggle CTF competitions and inspired a much higher-quality offering. Contact https://dreadnode.io/ for more information.
+
+- https://www.kaggle.com/competitions/ai-village-ctf
+- https://www.kaggle.com/competitions/ai-village-capture-the-flag-defcon31
+
 HackThisAI is a series of capture the flag (CTF) challenges to educate and train [adversarial machine learning](https://en.wikipedia.org/wiki/Adversarial_machine_learning) techniques. CTFs are a common way information security professionals learn new skills and compete across the community. Challenges are categorized so that players can focus on specific topics. The HackThisAI challenges should be approachable for new data scientists, machine learning engineers, and traditional infosec professionals, but progress in difficulty to a point that requires combinations of advanced techniques and creative approaches.
 
 
