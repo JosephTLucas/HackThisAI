@@ -35,7 +35,7 @@ jobs:
           jupyter lite build --contents content --output-dir dist --base-url='/lab?path=README.ipynb'
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
