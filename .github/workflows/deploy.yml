@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -24,9 +24,9 @@ jobs:
         run: |
           python -m pip install -r requirements.txt
       - name: Install mamba
-        uses: mamba-org/provision-with-micromamba@main
+        uses: mamba-org/setup-micromamba@v1
         with:
-          micromamba-version: '1.4.2'
+          micromamba-version: '1.6.6-0'
           environment-file: 'build-environment.yml'
 
       - name: Build the JupyterLite site

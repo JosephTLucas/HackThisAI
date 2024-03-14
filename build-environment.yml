@@ -7,6 +7,6 @@ dependencies:
   - pip
   - jupyter_server
   - jupyterlite-core >=0.2.0
-  - xeus-python >=1.0.0
+  - xeus-python
   - pip:
     - jupyterlite-pyodide-kernel
