@@ -1,6 +1,8 @@
 {
     "jupyter-lite-schema-version": 0,
     "jupyter-config-data": {
+      "appName": "HackThisAI",
+      "theme": "JupyterLab Dark",
       "disabledExtensions": [
         "@jupyterlab/drawio-extension",
         "jupyterlab-kernel-spy",
